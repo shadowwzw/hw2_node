@@ -1,0 +1,27 @@
+{
+  "name": "hw1_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"webpack --watch --progress\" \"nodemon --inspect ./app.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadowwzw/hw1_node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shadowwzw/hw1_node/issues"
+  },
+  "homepage": "https://github.com/shadowwzw/hw1_node#readme",
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.17.3",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
+  }
+}
