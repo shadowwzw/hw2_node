@@ -8,5 +8,5 @@ dirWatcher.watch('./data/', 1000)
 
 dirWatcher.on('changed', async file => {
     const fileContent = await importer.import(file)
-    console.log('fileContent = ', fileContent + '')
+    console.log(`fileContent ${file} = ${fileContent}`)
 })
