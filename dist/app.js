@@ -1,19 +1,21 @@
 'use strict';
 
-var _index = require('./config/index');
+var _dirwatcher = require('./dirwatcher');
 
-var _index2 = _interopRequireDefault(_index);
+var _dirwatcher2 = _interopRequireDefault(_dirwatcher);
 
-var _index3 = require('./models/index');
+var _importer = require('./importer');
+
+var _importer2 = _interopRequireDefault(_importer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const app = () => {
-  console.log(_index2.default.name);
-  new _index3.Users();
-  new _index3.Product();
-};
+const dirWatcher = new _dirwatcher2.default();
+const importer = new _importer2.default();
 
-app();
+dirWatcher.watch('./data/', 1000);
 
-setInterval(app, 5000);
+dirWatcher.on('changed', async file => {
+    const fileContent = await importer.import(file);
+    console.log('fileContent = ', fileContent + '');
+});

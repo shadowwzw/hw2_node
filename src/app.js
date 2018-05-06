@@ -1,12 +1,12 @@
-import config from './config/index'
-import { Users, Product } from './models/index'
+import DirWatcher from './dirwatcher'
+import Importer from './importer'
 
-const app = () => {
-  console.log(config.name)
-  new Users
-  new Product
-}
+const dirWatcher = new DirWatcher()
+const importer = new Importer()
 
-app()
+dirWatcher.watch('./data/', 1000)
 
-setInterval(app, 5000)
+dirWatcher.on('changed', async file => {
+    const fileContent = await importer.import(file)
+    console.log('fileContent = ', fileContent + '')
+})

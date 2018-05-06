@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "babel src --out-dir dist",
     "start": "concurrently \"babel src --watch --out-dir dist\" \"nodemon --inspect ./dist/app.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,5 +24,8 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "concurrently": "^3.5.1",
     "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10"
   }
 }
